@@ -1623,10 +1623,10 @@
   dependencies:
     nanoid "^3.1.23"
 
-"@shopify/react-native-skia@^0.1.162":
-  version "0.1.162"
-  resolved "https://registry.yarnpkg.com/@shopify/react-native-skia/-/react-native-skia-0.1.162.tgz#81d1cb396e49eb91ec6291eab44ec0c46d172e97"
-  integrity sha512-j2UrShRkGbCzNK6esdhTy+SFRpvu7uXWKcV/xDaaM2pZv+A5SGznfDyYKGg/e0j03g+lTiRBfFiGSYWCWqsDjA==
+"@shopify/react-native-skia@^0.1.165":
+  version "0.1.165"
+  resolved "https://registry.yarnpkg.com/@shopify/react-native-skia/-/react-native-skia-0.1.165.tgz#8d314c603d7c871c4512b52fbf59afc7dc7033d5"
+  integrity sha512-03CatLFGSsHGsSALLJX+I+419bcXaXYz0xDSGm2WCkSBEpPhDdM9ZOqQ0Md9x66nM9TkGlIA4j+aQEcTPID2Ng==
   dependencies:
     "@types/pixelmatch" "^5.2.4"
     "@types/pngjs" "^6.0.1"
