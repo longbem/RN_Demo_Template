@@ -8,7 +8,7 @@
  * @format
  */
 
-import RootRoute from '@animation/routers';
+import RootRoute from '@RNDemo/routers';
 import React from 'react';
 
 const App = () => {

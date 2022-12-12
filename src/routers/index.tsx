@@ -3,9 +3,9 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 // screens
-import {HomeScreen} from '@animation/screens/home';
-import {AnimationScreen} from '@animation/screens/animation';
-import {ChartScreen} from '@animation/screens/chart';
+import {HomeScreen} from '@RNDemo/screens/home';
+import {AnimationScreen} from '@RNDemo/screens/animation';
+import {ChartScreen} from '@RNDemo/screens/chart';
 
 const Stack = createNativeStackNavigator();
 
