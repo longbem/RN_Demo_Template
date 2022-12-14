@@ -6,16 +6,47 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {HomeScreen} from '@RNDemo/screens/home';
 import {AnimationScreen} from '@RNDemo/screens/animation';
 import {ChartScreen} from '@RNDemo/screens/chart';
+import {SplashScreen} from '@RNDemo/screens/splash';
+import {SCREEN_NAME} from './ScreenName';
 
 const Stack = createNativeStackNavigator();
+
+const mainStack = [
+  {
+    name: SCREEN_NAME.HomeScreen,
+    component: HomeScreen,
+  },
+  {
+    name: SCREEN_NAME.AnimationScreen,
+    component: AnimationScreen,
+  },
+  {
+    name: SCREEN_NAME.ChartScreen,
+    component: ChartScreen,
+  },
+  {
+    name: SCREEN_NAME.SplashScreen,
+    component: SplashScreen,
+    options: {
+      headerShown: true,
+    },
+  },
+];
 
 function RootRoute() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="HomeScreen" component={HomeScreen} />
-        <Stack.Screen name="AnimationScreen" component={AnimationScreen} />
-        <Stack.Screen name="ChartScreen" component={ChartScreen} />
+        {mainStack?.map((item, _) => {
+          return (
+            <Stack.Screen
+              key={item?.name}
+              name={item?.name}
+              component={item?.component}
+              options={{...item?.options}}
+            />
+          );
+        })}
       </Stack.Navigator>
     </NavigationContainer>
   );
