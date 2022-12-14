@@ -8,6 +8,7 @@ import {AnimationScreen} from '@RNDemo/screens/animation';
 import {ChartScreen} from '@RNDemo/screens/chart';
 import {SplashScreen} from '@RNDemo/screens/splash';
 import {SCREEN_NAME} from './ScreenName';
+import {LoadingDonut} from '@RNDemo/screens/loadings/loading-donut';
 
 const Stack = createNativeStackNavigator();
 
@@ -30,6 +31,10 @@ const mainStack = [
     options: {
       headerShown: true,
     },
+  },
+  {
+    name: SCREEN_NAME.LoadingScreen,
+    component: LoadingDonut,
   },
 ];
 

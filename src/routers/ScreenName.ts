@@ -3,4 +3,5 @@ export const SCREEN_NAME = {
   AnimationScreen: 'AnimationScreen',
   ChartScreen: 'ChartScreen',
   SplashScreen: 'SplashScreen',
+  LoadingScreen: 'LoadingScreen',
 };
