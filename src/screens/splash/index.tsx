@@ -1,3 +1,4 @@
+import {useCountDown} from '@RNDemo/hooks/useCountdown';
 import {center} from '@shopify/react-native-skia';
 import React from 'react';
 import {
@@ -19,11 +20,14 @@ import Animated, {
 
 const {height, width} = Dimensions.get('window');
 
+const image =
+  'https://images.unsplash.com/photo-1568826069038-f3de1448e9a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80';
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  boxText: {
+  footer: {
     height: 50,
     backgroundColor: '#FFFFFF',
     justifyContent: 'center',
@@ -42,15 +46,26 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     borderWidth: 1,
     borderColor: '#CDCDCD',
+    marginLeft: 7,
   },
   ig: {
     width: width,
     height: height * 0.8,
     position: 'absolute',
   },
+  boxText: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  autoClose: {
+    fontSize: 13,
+    color: '#012321',
+  },
 });
 
 export const SplashScreen: React.FC<any> = () => {
+  const {countDown, setCountDown} = useCountDown();
+
   const [isShow, setShow] = React.useState<boolean>(false);
   const fontSize = useSharedValue(40);
 
@@ -64,13 +79,19 @@ export const SplashScreen: React.FC<any> = () => {
       // style text
       fontSize.value = withSpring(16);
     }, 1000);
-    setTimeout(() => {
+    const timeOutShow = setTimeout(() => {
       setShow(true);
+      setCountDown(5);
     }, 3300);
     return () => {
       clearTimeout(timeOut);
+      clearTimeout(timeOutShow);
     };
   }, []);
+
+  const onPressAlert = () => {
+    Alert.alert('x');
+  };
 
   const animatedSplash: any = useAnimatedStyle(() => {
     return {
@@ -100,7 +121,7 @@ export const SplashScreen: React.FC<any> = () => {
       {isShow ? (
         <Image
           source={{
-            uri: 'https://images.unsplash.com/photo-1568826069038-f3de1448e9a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80',
+            uri: image,
           }}
           style={styles.ig}
         />
@@ -109,12 +130,14 @@ export const SplashScreen: React.FC<any> = () => {
         Splash screen
       </Animated.Text>
       {isShow ? (
-        <View style={styles.boxText}>
-          <TouchableOpacity
-            style={styles.btnClose}
-            onPress={() => Alert.alert('x')}>
-            <Text>x</Text>
-          </TouchableOpacity>
+        <View style={styles.footer}>
+          <View style={styles.boxText}>
+            <Text
+              style={styles.autoClose}>{`Tự đống đóng sau ${countDown}`}</Text>
+            <TouchableOpacity style={styles.btnClose} onPress={onPressAlert}>
+              <Text>x</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       ) : null}
     </Animated.View>
