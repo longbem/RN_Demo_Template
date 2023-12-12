@@ -9,6 +9,7 @@ import {ChartScreen} from '@RNDemo/screens/chart';
 import {SplashScreen} from '@RNDemo/screens/splash';
 import {SCREEN_NAME} from './ScreenName';
 import {LoadingDonut} from '@RNDemo/screens/loadings/loading-donut';
+import {FlatListAnimation} from '@RNDemo/screens/flatlist';
 
 const Stack = createNativeStackNavigator();
 
@@ -35,6 +36,10 @@ const mainStack = [
   {
     name: SCREEN_NAME.LoadingScreen,
     component: LoadingDonut,
+  },
+  {
+    name: SCREEN_NAME.FlatListAnimationScreen,
+    component: FlatListAnimation,
   },
 ];
 

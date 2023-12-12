@@ -4,4 +4,5 @@ export const SCREEN_NAME = {
   ChartScreen: 'ChartScreen',
   SplashScreen: 'SplashScreen',
   LoadingScreen: 'LoadingScreen',
+  FlatListAnimationScreen: 'FlatListAnimationScreen',
 };
